@@ -5,25 +5,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Yes</title>
     <style>
-        body { font-family: Arial, sans-serif; text-align: center; }
-        .gallery { display: flex; overflow: hidden; }
-        .gallery img { width: 100%; height: auto; }
-        .envelope { display: inline-block; width: 200px; height: 150px; border: 1px solid #ccc; background-color: #f1f1f1; margin: 20px auto; }
+        body { font-family: Arial, sans-serif; }
+        #secretEnvelope { cursor: pointer; width: 100px; height: 100px; background-color: #ccc; text-align: center; padding: 20px; border-radius: 10px; }
+        #secretLink { display: none; }
     </style>
 </head>
 <body>
-    <h1>Will You Be My Valentine?</h1>
-    <p>Forever and always, my love, you hold the key to my heart. ❤️</p>
+    <h1>A Love Note from Meredith</h1>
+    <p>My dearest, I hope you know how much you mean to me. Every moment spent with you is a treasure I cherish. You make my heart sing.</p>
 
-    <div class="gallery">
-        <img src="image1.jpg" alt="Love Image 1">
-        <img src="image2.jpg" alt="Love Image 2">
-        <img src="image3.jpg" alt="Love Image 3">
+    <h2>Photo Gallery</h2>
+    <div id="photoGallery">
+        <img src="photo1.jpg" alt="Photo 1" />
+        <img src="photo2.jpg" alt="Photo 2" />
+        <!-- Add more images up to photo35.jpg -->
+        <img src="photo35.jpg" alt="Photo 35" />
     </div>
 
-    <h2>Listen to Our Song</h2>
-    <iframe src="https://open.spotify.com/embed/track/your_track_id" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+    <h2>Listen to "Hanging by a Thread" by Slow Pulp</h2>
+    <iframe src="https://open.spotify.com/embed/track/3TnqszdZRy1jT4HJ5C6ksO" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
 
-    <div class="envelope">Secret Letter</div>
+    <h2>Secret Letter Envelope</h2>
+    <div id="secretEnvelope" onclick="revealSecret()">Click to open the secret letter</div>
+    <div id="secretLink">Here is the link to the private photos: <a href="https://drive.google.com/your-private-photos-link" target="_blank">Private Photos</a></div>
+
+    <script>
+        function revealSecret() {
+            document.getElementById('secretLink').style.display = 'block';
+        }
+    </script>
 </body>
 </html>
