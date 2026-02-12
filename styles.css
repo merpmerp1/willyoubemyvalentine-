@@ -1,0 +1,58 @@
+.heart-explosion {
+  animation: explode 0.5s ease-in-out forwards;
+}
+
+@keyframes explode {
+  0% { transform: scale(1); opacity: 1; }
+  100% { transform: scale(3); opacity: 0; }
+}
+
+button {
+  background-color: #ff69b4;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  transition: background-color 0.3s;
+  border-radius: 8px;
+}
+
+button:hover {
+  background-color: #ff1493;
+}
+
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.gallery img {
+  margin: 10px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.envelope {
+  width: 300px;
+  height: 200px;
+  background-color: #ffe6e6;
+  border: 2px solid #ffcccc;
+  position: relative;
+  margin: 20px auto;
+  border-radius: 10px;
+}
+.envelope:before {
+  content: '';
+  position: absolute;
+  top: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60%;
+  height: 20px;
+  background-color: #ffcccc;
+  border-radius: 10px 10px 0 0;
+}
