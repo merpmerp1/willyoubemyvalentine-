@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Will You Be My Valentine?</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: #fce4ec;
+            overflow: hidden;
+        }
+        h1 {
+            color: #d81b60;
+        }
+        #heart {
+            width: 100px;
+            height: 100px;
+            background: red;
+            position: relative;
+            animation: explode 1s forwards;
+        }
+        @keyframes explode {
+            0% {
+                transform: scale(1);
+            }
+            100% {
+                transform: scale(2);
+                opacity: 0;
+            }
+        }
+        #buttons {
+            margin-top: 20px;
+        }
+        button {
+            margin: 10px;
+            padding: 10px 20px;
+            font-size: 16px;
+        }
+    </style>
+    <script>
+        function playSound() {
+            const audio = new Audio('silly-sound-effect.mp3');
+            audio.play();
+        }
+        function handleResponse(answer) {
+            playSound();
+            alert(answer ? 'Yay! You said YES!' : 'Oh no! You said NO!');
+        }
+    </script>
+</head>
+<body>
+    <h1>Will You Be My Valentine?</h1>
+    <div id="heart"></div>
+    <div id="buttons">
+        <button onclick="handleResponse(true)">Yes</button>
+        <button onclick="handleResponse(false)">No</button>
+    </div>
+</body>
+</html>
