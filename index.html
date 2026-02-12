@@ -5,60 +5,37 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Will You Be My Valentine?</title>
     <style>
-        body {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-            background-color: #fce4ec;
-            overflow: hidden;
-        }
-        h1 {
-            color: #d81b60;
-        }
-        #heart {
-            width: 100px;
-            height: 100px;
-            background: red;
-            position: relative;
-            animation: explode 1s forwards;
-        }
-        @keyframes explode {
-            0% {
-                transform: scale(1);
-            }
-            100% {
-                transform: scale(2);
-                opacity: 0;
-            }
-        }
-        #buttons {
-            margin-top: 20px;
-        }
-        button {
-            margin: 10px;
-            padding: 10px 20px;
-            font-size: 16px;
-        }
+        body { display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100vh; background-color: pink; }
+        .heart { position: absolute; width: 100px; height: 100px; background: red; clip-path: polygon(50% 0%, 0% 100%, 100% 100%); animation: pop 1s; }
+        @keyframes pop { from { transform: scale(0); } to { transform: scale(1); } }
+        .no-button { position: absolute; transition: all 0.5s; }
     </style>
-    <script>
-        function playSound() {
-            const audio = new Audio('silly-sound-effect.mp3');
-            audio.play();
-        }
-        function handleResponse(answer) {
-            playSound();
-            alert(answer ? 'Yay! You said YES!' : 'Oh no! You said NO!');
-        }
-    </script>
 </head>
 <body>
-    <h1>Will You Be My Valentine?</h1>
-    <div id="heart"></div>
-    <div id="buttons">
-        <button onclick="handleResponse(true)">Yes</button>
-        <button onclick="handleResponse(false)">No</button>
-    </div>
+    <div class="heart"></div>
+    <h1 style="display:none;" id="revealText">Dear Aaron, Will you be my Valentine?</h1>
+    
+    <button id="yesButton">Yes</button>
+    <button id="noButton" class="no-button">No</button>
+
+    <audio id="sillySound" src="silly-sound.mp3"></audio>
+
+    <script>
+        let clickCount = 0;
+
+        document.getElementById('yesButton').onclick = function() {
+            document.getElementById('revealText').style.display = 'block';
+            document.querySelector('.heart').style.animationDir = 'normal';
+            document.getElementById('sillySound').play();
+        }
+
+        document.getElementById('noButton').onclick = function() {
+            clickCount++;
+            this.style.top = Math.random() * window.innerHeight + 'px';
+            this.style.left = Math.random() * window.innerWidth + 'px';
+            console.log("No button clicked " + clickCount + " times");
+            document.getElementById('sillySound').play();
+        }
+    </script>
 </body>
 </html>
